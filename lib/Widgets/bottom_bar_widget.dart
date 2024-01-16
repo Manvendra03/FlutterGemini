@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gemini_ai/gimini_controller.dart';
+import 'package:flutter_gemini_ai/Controller/gimini_controller.dart';
 
 class BottomBarWidget extends StatelessWidget {
   BottomBarWidget({super.key});
@@ -57,7 +57,6 @@ class BottomBarWidget extends StatelessWidget {
                 onPressed: () async {
                   String? value = await GeminiController.outputFromText(
                       _textEditingController.text);
-                  print(value);
                 },
               ),
             )

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_gemini_ai/Widgets/bottom_bar_widget.dart';
+import 'package:provider/provider.dart';
 
 String api_key = "AIzaSyCUuVZ-WNegoSDLq5iH48Ak6EIIaXTwh50";
 
