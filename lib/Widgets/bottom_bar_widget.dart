@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini_ai/Controller/gimini_controller.dart';
+import 'package:flutter_gemini_ai/Controller/myprovide.dart';
+import 'package:provider/provider.dart';
 
 class BottomBarWidget extends StatelessWidget {
   BottomBarWidget({super.key});
@@ -55,8 +57,16 @@ class BottomBarWidget extends StatelessWidget {
                 icon: const Icon(Icons.send),
                 color: Colors.grey,
                 onPressed: () async {
-                  String? value = await GeminiController.outputFromText(
-                      _textEditingController.text);
+                  String Inputtext = _textEditingController.text;
+                  _textEditingController.clear();
+                  context.read<Message>().addMessageToList(
+                      Message(userType: UserType.User, msg: Inputtext));
+
+                  String? value =
+                      await GeminiController.outputFromText(Inputtext);
+
+                  context.read<Message>().addMessageToList(
+                      Message(userType: UserType.Ai, msg: value!));
                 },
               ),
             )
